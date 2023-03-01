@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class SameGame extends TileMatchingGame{
     /*
      *Creating a tile
@@ -6,11 +8,12 @@ public class SameGame extends TileMatchingGame{
      */
     
     SameGame (){
-        TileMatchingLogic tml = new NeighborMatching();
+        ArrayList<TileMatchingLogic> tmlList = {new VerticalMatching(), new HorizontalMatching()};
+        TileMatchingLogic tml = new NeighborMatching(tmlList);
         TileSpawnLogic tsl = new FullSpawn();
     }
 
-    
+
 
 
 }
