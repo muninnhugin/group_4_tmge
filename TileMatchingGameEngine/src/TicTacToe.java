@@ -1,10 +1,14 @@
-public class TicTacToe {
+public class TicTacToe extends TileMatchingGame{
     TileMatrix matrix;
     TileSpawnLogic spawn;
     TileMatchingLogic match;
     TileDestructionLogic destruct;
     Player player1;
     Player player2;
+
+    TileMatchingGame.setMatchingLogic() = new DiagonalLogic();
+    
+
     
     public void run {
         // Load player data.
