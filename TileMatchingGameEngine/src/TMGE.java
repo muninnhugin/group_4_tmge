@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
-abstract class TileMatchingGame {
+abstract class TMGE {
+
    public void setMatchingLogic(TileMatchingLogic tml){
 
    }
@@ -12,4 +13,12 @@ abstract class TileMatchingGame {
 
    }
 
+   public void run(){
+
+      makeMove(Coordinate coord){
+      // makemove, match, destruct, winner, spawn.
+      }
+   }
+
+   
 }
