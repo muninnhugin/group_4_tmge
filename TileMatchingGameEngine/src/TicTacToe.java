@@ -10,7 +10,7 @@ public class TicTacToe extends TileMatchingGame{
     
 
     
-    public void run {
+    public void run() {
         // Load player data.
         player1 = new Player();
         player2 = new Player();
@@ -25,8 +25,6 @@ public class TicTacToe extends TileMatchingGame{
             win = match.makeMove(move); // How can match determine who wins? Are they responsible for it or someone else.
             if (win) break;
             spawn.makeMove(move);
-            
-            String move = player1.getInput();
             boolean end = match.makeMove(move);
             if (end) break;
             spawn.makeMove(move);
