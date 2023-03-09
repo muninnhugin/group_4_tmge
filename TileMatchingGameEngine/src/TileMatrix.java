@@ -1,12 +1,29 @@
-import java.util.ArrayList;
-
 public class TileMatrix {
-    int[][] board;
+    Tile[][] board;
 
-    TileMatrix(int row, int col) {
-        board = new int[row][col];
+    TileMatrix(int row, int col) throws Exception {
+        if (row == 0 || col == 0) throw new Exception();
+        board = new Tile[row][col];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                board[i][j] = new EmptyTile();
+            }
+        }
     }
 
+    void setTile(int row, int col, Tile tile) throws Exception {
+        if (row < 0 || row >= board.length) throw new Exception();
+        if (col < 0 || col >= board[0].length) throw new Exception();
+        board[row][col] = tile;
+    }
+
+    Tile getTile(int row, int col) throws Exception {
+        if (row < 0 || row >= board.length) throw new Exception();
+        if (col < 0 || col >= board[0].length) throw new Exception();
+        return board[row][col];
+    }
+
+    // Any logic more complex like spawn patterns, initialization should be done in the appropriate logic classes.
     
 
     /*  if fullspawn(Randomized tiles){
