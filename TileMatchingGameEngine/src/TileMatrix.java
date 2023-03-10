@@ -1,5 +1,7 @@
 public class TileMatrix {
     Tile[][] board;
+    int row;
+    int col;
 
     TileMatrix(int row, int col) throws Exception {
         if (row == 0 || col == 0) throw new Exception();
@@ -9,6 +11,8 @@ public class TileMatrix {
                 board[i][j] = new EmptyTile();
             }
         }
+        this.row = row;
+        this.col = col;
     }
 
     void setTile(int row, int col, Tile tile) throws Exception {
