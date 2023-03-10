@@ -1,4 +1,4 @@
-public class EmptyTile implements Tile {
+public class EmptyTile extends Tile {
     String color;
     Coordinate coordinate;
     Shape shape;
@@ -7,7 +7,7 @@ public class EmptyTile implements Tile {
     {
         color = "";
         coordinate = new Coordinate(-1, -1);
-        shape = new Shape();
+//        shape = new Shape();
     }
 
     public String getColor() {
@@ -21,4 +21,5 @@ public class EmptyTile implements Tile {
     public Coordinate getCoordinate() {
         return coordinate;
     }
+
 }

@@ -45,4 +45,7 @@ abstract class TMGE {
    }
 
 
+   protected void setTileMatrix(int row, int col) throws Exception {
+      TileMatrix board = new TileMatrix(row, col);
+   }
 }

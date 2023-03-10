@@ -7,13 +7,14 @@ public class SameGame extends TMGE{
      newBoard.setSpawnLogic(spawnLogic = "fullspawn")
      */
     
-    SameGame (){  
+    SameGame () throws Exception {
         int gameID; //for real time multiplayer game
         SameGame myGame = new SameGame();
 
+        //WHERE we want the board,
         ArrayList<TileMatchingLogic> tmlList = {new VerticalMatching(), new HorizontalMatching()};
         myGame.setMatchingLogic(tmlList);
-        myGame.setTileMatrix(new TileMatrix(6,6));
+        myGame.setTileMatrix(6,6);
         myGame.setSpawnLogic(new FullSpawn());
         myGame.setDestructionLogic(new GravityDestructionLogic());
         myGame.setPlayers(new ArrayList<Player>());

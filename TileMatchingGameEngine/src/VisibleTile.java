@@ -1,8 +1,9 @@
-public class VisibleTile {
+public class VisibleTile extends Tile{
     String color;
     Coordinate coordinate;
     Shape shape;
 
+    VisibleTile(){}
     VisibleTile(String color, Coordinate coordinate, Shape shape)
     {
         this.color = color;

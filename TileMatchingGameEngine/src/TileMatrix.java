@@ -3,6 +3,13 @@ public class TileMatrix {
     int row;
     int col;
 
+    String[] COLORS = {"R","Y","G","B","P"};
+    int numOfColors;
+
+    public void setNumOfColors(int n) {
+        numOfColors = n;
+    }
+
     TileMatrix(int row, int col) throws Exception {
         if (row == 0 || col == 0) throw new Exception();
         board = new Tile[row][col];
