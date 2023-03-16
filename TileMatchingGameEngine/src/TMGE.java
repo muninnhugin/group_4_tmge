@@ -1,23 +1,35 @@
 import java.util.ArrayList;
 
 abstract class TMGE {
+   TileMatchingLogic match;
+   TileSpawnLogic spawn;
+   TileDestructionLogic destrction = new EmptyDestruction();
+   // Ignore spawn logic for now
+   TileMatrix matrix = new TileMatrix(3, 3);
+   EndGame end = new EndGame();
+   
 
    public void setMatchingLogic(TileMatchingLogic tml){
-
+      match = tml;
    }
-   public void setMatchingLogic(ArrayList<TileMatchingLogic> logics){
+   //public void setMatchingLogic(ArrayList<TileMatchingLogic> logics){
     
-   }
+   //}
 
    public void setSpawnLogic(TileSpawnLogic tsl){
-
+      spawn = tsl;
    }
 
    public void run(){
-
-      makeMove(Coordinate coord){
-      // makemove, match, destruct, winner, spawn.
+      spawn.spawn(matrix);
+      while (!end.isOver) {
+         Coordinate move = makeMove(matrix);
+         match.match(matrix);
+         destrction.destroy(matrix);
+         end.check();
       }
+      
+
 
 
    /*

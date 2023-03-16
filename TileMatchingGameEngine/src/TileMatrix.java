@@ -10,8 +10,8 @@ public class TileMatrix {
         numOfColors = n;
     }
 
-    TileMatrix(int row, int col) throws Exception {
-        if (row == 0 || col == 0) throw new Exception();
+    TileMatrix(int row, int col) {
+        //if (row == 0 || col == 0) throw new Exception();
         board = new Tile[row][col];
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
