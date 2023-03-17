@@ -1,6 +1,6 @@
 package tmge;
 
-public class TileMatrix {
+class TileMatrix {
     Tile[][] board;
     int row;
     int col;

@@ -1,5 +1,5 @@
 package tmge.logic;
 
-public class EmptySpawn implements TileSpawnLogic{
-    
+public class EmptySpawn implements TileSpawnLogic {
+
 }

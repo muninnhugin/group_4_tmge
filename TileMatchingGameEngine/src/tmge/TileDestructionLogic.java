@@ -1,6 +1,6 @@
 package tmge;
 
-interface TileDestructionLogic {
-
+public interface TileDestructionLogic {
+ 
     public void destroy(TileMatrix board) throws Exception;
 }

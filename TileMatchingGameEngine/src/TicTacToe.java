@@ -1,5 +1,3 @@
-package tmge;
-
 public class TicTacToe extends TileMatchingGame{
     TileMatrix matrix;
     TileSpawnLogic spawn;
