@@ -1,3 +1,5 @@
+package tmge;
+
 public class Player {
     int uid;
     String username;

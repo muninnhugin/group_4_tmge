@@ -1,3 +1,5 @@
+package tmge;
+
 public class VisibleTile extends Tile{
     String color;
     Coordinate coordinate;

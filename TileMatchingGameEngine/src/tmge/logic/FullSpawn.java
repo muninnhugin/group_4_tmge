@@ -1,3 +1,5 @@
+package tmge.logic;
+
 import java.util.Random;
 public class FullSpawn implements TileSpawnLogic{
 

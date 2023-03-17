@@ -1,3 +1,5 @@
+package tmge;
+
 public class TileMatrix {
     Tile[][] board;
     int row;

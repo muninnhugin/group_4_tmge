@@ -1,3 +1,5 @@
+package tmge;
+
 import java.util.ArrayList;
 
 abstract class TMGE {
@@ -19,6 +21,17 @@ abstract class TMGE {
    public void setSpawnLogic(TileSpawnLogic tsl){
       spawn = tsl;
    }
+
+   // Tick/Update
+   // Board init
+   // Loop
+   // Move -> Flag
+   // if Move
+   // ^ Match
+   // ^ Destruct/Update
+   //    EndGame Logic/Winner // Try exceptions?
+   // ^ Spawn
+   // End Loop
 
    public void run(){
       spawn.spawn(matrix);

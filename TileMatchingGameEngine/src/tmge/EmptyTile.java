@@ -1,3 +1,5 @@
+package tmge;
+
 public class EmptyTile extends Tile {
     String color;
     Coordinate coordinate;

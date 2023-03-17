@@ -1,3 +1,5 @@
+package tmge.logic;
+
 import java.util.ArrayList;
 
 public class NeighborMatching implements TileMatchingLogic{
