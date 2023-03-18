@@ -11,10 +11,17 @@ public class InputHandlerLogic {
     }
     
     public Coordinate makeMove() {
-        String result = in.nextLine().strip();
-        if (!result.isBlank()) {
-            result.split(result, 0)
-        }
+        Coordinate result = null;
+        do {
+            String line = in.nextLine().strip();
+            if (!line.isBlank()) {
+                if (line.matches("\\d \\d")) {
+                    return new Coordinate(line.charAt(0), line.charAt(2));
+                }
+            } else {
+                return null;
+            }
+        } while (result != null);
         return null;
     }
 }

@@ -1,6 +1,6 @@
 package tmge;
 
-class TileMatrix {
+public class TileMatrix {
     Tile[][] board;
     int row;
     int col;
@@ -24,15 +24,15 @@ class TileMatrix {
         this.col = col;
     }
 
-    void setTile(int row, int col, Tile tile) throws Exception {
-        if (row < 0 || row >= board.length) throw new Exception();
-        if (col < 0 || col >= board[0].length) throw new Exception();
+    void setTile(int row, int col, Tile tile){
+        //if (row < 0 || row >= board.length) throw new Exception();
+        //if (col < 0 || col >= board[0].length) throw new Exception();
         board[row][col] = tile;
     }
 
-    Tile getTile(int row, int col) throws Exception {
-        if (row < 0 || row >= board.length) throw new Exception();
-        if (col < 0 || col >= board[0].length) throw new Exception();
+    Tile getTile(int row, int col){
+        //if (row < 0 || row >= board.length) throw new Exception();
+        //if (col < 0 || col >= board[0].length) throw new Exception();
         return board[row][col];
     }
 
