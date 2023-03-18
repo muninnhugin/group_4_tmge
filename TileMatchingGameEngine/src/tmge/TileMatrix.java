@@ -1,17 +1,19 @@
-public class TileMatrix {
-    Tile[][] board;
-    int row;
-    int col;
+package tmge;
 
-    String[] COLORS = {"R","Y","G","B","P"};
-    int numOfColors;
+public class TileMatrix {
+    public Tile[][] board;
+    public int row;
+    public int col;
+
+    public String[] COLORS = {"R","Y","G","B","P"};
+    public int numOfColors;
 
     public void setNumOfColors(int n) {
         numOfColors = n;
     }
 
-    TileMatrix(int row, int col) throws Exception {
-        if (row == 0 || col == 0) throw new Exception();
+    public TileMatrix(int row, int col) {
+        //if (row == 0 || col == 0) throw new Exception();
         board = new Tile[row][col];
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
@@ -22,15 +24,23 @@ public class TileMatrix {
         this.col = col;
     }
 
-    void setTile(int row, int col, Tile tile) throws Exception {
+    public void print() {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                System.out.print(this.board[i][j].getColor()+ " ");
+            }
+            System.out.println();
+        }
+    }
+    public void setTile(int row, int col, Tile tile) throws Exception {
         if (row < 0 || row >= board.length) throw new Exception();
         if (col < 0 || col >= board[0].length) throw new Exception();
         board[row][col] = tile;
     }
 
-    Tile getTile(int row, int col) throws Exception {
-        if (row < 0 || row >= board.length) throw new Exception();
-        if (col < 0 || col >= board[0].length) throw new Exception();
+    Tile getTile(int row, int col){
+        //if (row < 0 || row >= board.length) throw new Exception();
+        //if (col < 0 || col >= board[0].length) throw new Exception();
         return board[row][col];
     }
 

@@ -1,23 +1,53 @@
+package tmge;
+
+import tmge.logic.*;
 import java.util.ArrayList;
 
 abstract class TMGE {
+   TileMatchingLogic match;
+   TileSpawnLogic spawn;
+   // TODO: Implement matched tile set.
+   TileDestructionLogic destrction = new EmptyDestruction();
+   // Ignore spawn logic for now
+   TileMatrix matrix = new TileMatrix(3, 3);
+   EndGame end = new EndGame();
+   InputHandlerLogic input = new InputHandlerLogic();
+   
 
    public void setMatchingLogic(TileMatchingLogic tml){
-
+      match = tml;
    }
-   public void setMatchingLogic(ArrayList<TileMatchingLogic> logics){
+   // TODO: Implement matching arraylist
+   //public void setMatchingLogic(ArrayList<TileMatchingLogic> logics){
     
-   }
+   //}
 
    public void setSpawnLogic(TileSpawnLogic tsl){
-
+      spawn = tsl;
    }
 
-   public void run(){
+   // Tick/Update
+   // Board init
+   // Loop
+   // Move -> Flag
+   // if Move
+   // ^ Match
+   // ^ Destruct/Update
+   //    EndGame Logic/Winner // Try exceptions?
+   // ^ Spawn
+   // End Loop
 
-      makeMove(Coordinate coord){
-      // makemove, match, destruct, winner, spawn.
+   public void run() throws Exception {
+      spawn.spawn(matrix);
+      while (!end.isOver) {
+         Coordinate move = input.makeMove();
+         match.match(move, matrix);
+         destrction.destroy(matrix);
+         end.check(matrix);
+         //Missing display
       }
+      
+
 
 
    /*
