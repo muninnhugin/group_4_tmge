@@ -38,9 +38,9 @@ public class TileMatrix {
         board[row][col] = tile;
     }
 
-    Tile getTile(int row, int col) throws Exception {
-        if (row < 0 || row >= board.length) throw new Exception();
-        if (col < 0 || col >= board[0].length) throw new Exception();
+    Tile getTile(int row, int col){
+        //if (row < 0 || row >= board.length) throw new Exception();
+        //if (col < 0 || col >= board[0].length) throw new Exception();
         return board[row][col];
     }
 

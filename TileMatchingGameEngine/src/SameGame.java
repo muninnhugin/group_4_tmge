@@ -1,5 +1,3 @@
-package tmge;
-
 import java.util.ArrayList;
 
 public class SameGame extends TMGE{

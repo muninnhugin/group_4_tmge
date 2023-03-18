@@ -3,7 +3,8 @@ package tmge.logic;
 import java.util.Random;
 import tmge.*;
 
-public class FullSpawn implements TileSpawnLogic{
+
+public class FullSpawn implements TileSpawnLogic {
 
     Random rn = new Random();
     int n= 4;

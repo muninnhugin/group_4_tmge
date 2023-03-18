@@ -1,5 +1,5 @@
 package tmge;
 
 interface TileMatchingLogic {
-    public void match(TileMatrix board) throws Exception;
+    public void match(Coordinate move, TileMatrix board) throws Exception;
 }

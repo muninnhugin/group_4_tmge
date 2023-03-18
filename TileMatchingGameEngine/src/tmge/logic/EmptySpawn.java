@@ -1,6 +1,6 @@
 package tmge.logic;
 import tmge.*;
 
-public class EmptySpawn implements TileSpawnLogic{
-    
+public class EmptySpawn implements TileSpawnLogic {
+
 }
