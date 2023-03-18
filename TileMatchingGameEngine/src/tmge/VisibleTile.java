@@ -5,7 +5,7 @@ public class VisibleTile extends Tile{
     Coordinate coordinate;
     Shape shape;
 
-    VisibleTile(){}
+    public VisibleTile(){}
     VisibleTile(String color, Coordinate coordinate, Shape shape)
     {
         this.color = color;
