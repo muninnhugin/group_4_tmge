@@ -3,9 +3,11 @@ package tmge;
 import tmge.logic.*;
 import java.util.ArrayList;
 
-abstract class TMGE {
+public abstract class TMGE {
    TileMatchingLogic match;
+   ArrayList<TileMatchingLogic> logics;
    TileSpawnLogic spawn;
+
    // TODO: Implement matched tile set.
    TileDestructionLogic destrction = new EmptyDestruction();
    // Ignore spawn logic for now

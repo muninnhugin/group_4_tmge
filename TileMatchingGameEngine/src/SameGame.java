@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import tmge.logic.*;
 
 public class SameGame extends TMGE{
     /*

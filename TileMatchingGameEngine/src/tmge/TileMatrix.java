@@ -38,6 +38,26 @@ public class TileMatrix {
         board[row][col] = tile;
     }
 
+    public Boolean checkYRange(int y){
+        return !(y < 0 || y >= row);
+    }
+
+    public Boolean checkXRange(int x) {
+        return !(x < 0 || x >= col);
+    }
+    
+    public Boolean isSameColor(Tile x, Tile y)
+    {
+        System.out.print("The color is " + y.color + "\n");
+
+        return x.color.equals(y.color);
+    }
+
+    public Tile getTile(Coordinate coord)
+    {
+        return board[coord.x][coord.y];
+    }
+
     Tile getTile(int row, int col){
         //if (row < 0 || row >= board.length) throw new Exception();
         //if (col < 0 || col >= board[0].length) throw new Exception();
