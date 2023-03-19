@@ -48,8 +48,6 @@ public class TileMatrix {
     
     public Boolean isSameColor(Tile x, Tile y)
     {
-        System.out.print("The color is " + y.color + "\n");
-
         return x.color.equals(y.color);
     }
 
