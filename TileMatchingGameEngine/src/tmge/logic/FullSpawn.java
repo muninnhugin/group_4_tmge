@@ -7,18 +7,15 @@ import tmge.*;
 public class FullSpawn implements TileSpawnLogic {
 
     Random rn = new Random();
-    int n= 4;
+    int n = VisibleTile.COLORS.length - 1;
 
     public void spawn(TileMatrix board) throws Exception {
         int idx = n;
-        for (int i = 0; i < board.row ; i++){
-            for (int j = 0; j < board.col; j++){
-
-                VisibleTile tile = new VisibleTile();
-
-                tile.setColor(board.COLORS[idx]);
-                tile.setShape(new Circle()); //circle
-                board.setTile(i, j, tile);
+        for (int i = 0; i < board.getRow(); i++){
+            for (int j = 0; j < board.getColumn(); j++){
+                Coordinate coord = new Coordinate(i, j);
+                VisibleTile tile = new VisibleTile(VisibleTile.COLORS[idx], coord, new Circle());
+                board.setTile(coord, tile);
 
                 idx = rn.nextInt(n);
 

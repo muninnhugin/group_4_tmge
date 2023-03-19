@@ -15,14 +15,12 @@ public abstract class Tile {
             return true;
         if (obj == null)
             return false;
-        if (getClass() != obj.getClass())
+        if (!(obj instanceof Tile)) // We want to do basic comparisons, but symmetry/transitivty is broken.
             return false;
         Tile other = (Tile) obj;
         if (color != other.color)
             return false;
-        if (shape != other.shape)
-            return false;
-        if (!coordinate.equals(other.coordinate))
+        if (shape.equals(other.shape))
             return false;
         return true;
     }

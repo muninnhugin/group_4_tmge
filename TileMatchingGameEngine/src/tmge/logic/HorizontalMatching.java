@@ -13,7 +13,7 @@ public class HorizontalMatching implements TileMatchingLogic{
         Set<Coordinate> matched = new HashSet<Coordinate>();
         Coordinate cur = new Coordinate(coord.x, coord.y);
         // while this tile is in border and is same
-        while(matrix.checkXRange(cur.x) && matrix.isSameColor(matrix.getTile(coord), matrix.getTile(cur)))
+        while(matrix.checkRange(cur) && matrix.getTile(coord).equals(matrix.getTile(cur)))
         {
             // add coord into matched
             matched.add(new Coordinate(cur));
@@ -21,7 +21,7 @@ public class HorizontalMatching implements TileMatchingLogic{
         }
 
         cur = new Coordinate(coord.x, coord.y);
-        while(matrix.checkXRange(cur.x) && matrix.isSameColor(matrix.getTile(coord), matrix.getTile(cur)))
+        while(matrix.checkRange(cur) && matrix.getTile(coord).equals(matrix.getTile(cur)))
         {
             matched.add(new Coordinate(cur));
             cur.y -= 1;
