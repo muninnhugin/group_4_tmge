@@ -12,8 +12,10 @@ public class TestTileMatrix {
         fp.spawn(matrix);
         matrix.print();
 
-        TileMatchingLogic tml = new HorizontalMatching();
-        Set<Coordinate> matched = tml.match(new Coordinate(3,3), matrix);
+        TileMatchingLogic hml = new HorizontalMatching();
+        TileMatchingLogic vml = new VerticalMatching();
+        Set<Coordinate> matched = hml.match(new Coordinate(3,3), matrix);
+        matched.addAll(vml.match(new Coordinate(3,3), matrix));
         for(Coordinate coord : matched)
         {
             System.out.print("matching coordinates are: " + coord.x +", "+ coord.y + " \n");
