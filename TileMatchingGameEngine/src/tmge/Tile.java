@@ -8,4 +8,22 @@ public abstract class Tile {
     String getColor(){
         return color;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Tile other = (Tile) obj;
+        if (color != other.color)
+            return false;
+        if (shape != other.shape)
+            return false;
+        if (!coordinate.equals(other.coordinate))
+            return false;
+        return true;
+    }
 }
