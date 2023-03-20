@@ -1,5 +1,7 @@
 import tmge.logic.*;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 import tmge.*;
@@ -12,15 +14,21 @@ public class TestTileMatrix {
         fp.spawn(matrix);
         matrix.print();
 
+        Set<Coordinate> toMatch = new HashSet<>();
+        toMatch.add(new Coordinate(3,3));
         TileMatchingLogic hml = new HorizontalMatching();
         TileMatchingLogic vml = new VerticalMatching();
-        Set<Coordinate> matched = hml.match(new Coordinate(3,3), matrix);
-        matched.addAll(vml.match(new Coordinate(3,3), matrix));
-        for(Coordinate coord : matched)
+        ArrayList<TileMatchingLogic> tmlList = new ArrayList<>();
+        tmlList.add(hml);
+        tmlList.add(vml);
+        LineMatching lineMatching = new LineMatching(tmlList);
+
+        Set<Coordinate> matched = lineMatching.match(toMatch, matrix);
+        System.out.println("Matched coordinates: ");
+        for(Coordinate coordinate : matched)
         {
-            System.out.print("matching coordinates are: " + coord.x +", "+ coord.y + " \n");
+            System.out.println(coordinate.x + ", " + coordinate.y);
         }
-        System.out.println();
     }
 
 
