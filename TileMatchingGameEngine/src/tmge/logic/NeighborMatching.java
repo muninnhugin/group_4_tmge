@@ -16,12 +16,12 @@ public class NeighborMatching implements TileMatchingLogic{
      
 
         Set<Coordinate> matched = new HashSet<Coordinate>(); 
-        Set<Coordinate> visited = new HashSet<Coordinate>(); 
-        Queue<Coordinate> explore = new LinkedList<>();
+        
 
         
        for(Coordinate coordinate : coords)
-       {   
+       {    Set<Coordinate> visited = new HashSet<Coordinate>(); 
+            Queue<Coordinate> explore = new LinkedList<>();
         
             Coordinate cur = new Coordinate(coordinate.x, coordinate.y);
          

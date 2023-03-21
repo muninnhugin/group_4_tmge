@@ -16,6 +16,38 @@ public class TileMatrix {
         this.col = col;
     }
 
+    public void printM(TileMatrix matrix)
+    {
+        for (int i = 0; i < matrix.getRow(); i++) {
+            for (int j = 0; j < matrix.getColumn(); j++) {
+                //Coordinate coord = new Coordinate(i,j);
+                System.out.print(board[i][j].getColor());
+                System.out.print(" ");
+            }
+            System.out.println("");
+    }
+
+    
+
+    }
+    public void setEmpty(Coordinate coordinate)
+    {
+        board[coordinate.x][coordinate.y] = new EmptyTile();
+
+    }
+
+    public int getRowTotal()
+    {
+        return this.board.length;
+    
+    }
+
+    public int getColTotal()
+    {
+       return this.board[0].length;
+    
+    }
+
     public int getRow() {
         return this.row;
     }
@@ -72,4 +104,4 @@ public class TileMatrix {
     
     */  
 
-}
+    }
