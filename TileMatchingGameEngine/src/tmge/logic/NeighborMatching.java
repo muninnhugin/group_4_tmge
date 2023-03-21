@@ -1,33 +1,96 @@
-package tmge.logic;
 
-import java.util.ArrayList;
+package tmge.logic;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Set;
+import tmge.Coordinate;
+import tmge.TileMatrix;
+
 
 public class NeighborMatching implements TileMatchingLogic{
-    NeighborMatching(ArrayList<TileMatchingLogic> tmlList)
-    {
-
-    }
-
+    
     @Override
-    public void match(Coordinate selected) {
-        // use BFS to match tiles
-        // use tmlList to find neighbors, add it to queue, pop queue
-        // gonna use Comparable interface to compare the tiles
+    public Set<Coordinate> match(Set<Coordinate> coords, TileMatrix matrix) throws Exception {
+       
+     
 
-        // algo
-        // make a queue
-        Queue<Coordinate> toMatch = new LinkedList<>();
-        // add coordinate to the queue
-        toMatch.add(selected);
-        // start a loop
-        while(!toMatch.isEmpty()) {
-            // pop from queue
-            Coordinate coordinate = toMatch.remove();
-            // process the popped element
-                // implements setEmpty() for VisibleTile class
-            // add neighbors to queue using tile comparable interface and tml list
-        }
+        Set<Coordinate> matched = new HashSet<Coordinate>(); 
+        Set<Coordinate> visited = new HashSet<Coordinate>(); 
+        Queue<Coordinate> explore = new LinkedList<>();
+
+        
+       for(Coordinate coordinate : coords)
+       {   
+        
+            Coordinate cur = new Coordinate(coordinate.x, coordinate.y);
+         
+            explore.add(cur);
+
+            while(!explore.isEmpty()) {       
+              
+                Boolean match = false;
+                cur = explore.remove();
+
+                if (!matrix.checkRange(cur))
+                {
+                    break;
+                }
+
+                if (!visited.contains(cur))
+                {
+                    visited.add(cur);
+                }
+
+                if(matrix.checkXRange(cur.x+1) && matrix.checkYRange(cur.y) && (!visited.contains(new Coordinate(cur.x+1, cur.y))) 
+                && (!explore.contains(new Coordinate(cur.x+1, cur.y))) 
+                && matrix.getTile(cur).equals(matrix.getTile(new Coordinate(cur.x+1, cur.y))))
+                {
+                   
+                    match = true;
+                    explore.add(new Coordinate(cur.x+1, cur.y));
+                    matched.add(new Coordinate(cur.x+1, cur.y));
+                }
+    
+                if(matrix.checkXRange(cur.x) && matrix.checkYRange(cur.y-1) 
+                && (!visited.contains(new Coordinate(cur.x, cur.y-1)))  
+                && (!explore.contains(new Coordinate(cur.x, cur.y-1))) 
+                && matrix.getTile(cur).equals(matrix.getTile(new Coordinate(cur.x, cur.y-1))))
+                {
+          
+                    match = true;
+                    explore.add(new Coordinate(cur.x, cur.y-1));
+                    matched.add(new Coordinate(cur.x, cur.y-1));
+                }
+    
+                if(matrix.checkXRange(cur.x-1) && matrix.checkYRange(cur.y) 
+                && (!visited.contains(new Coordinate(cur.x-1, cur.y)))  
+                && (!explore.contains(new Coordinate(cur.x-1, cur.y))) 
+                && matrix.getTile(cur).equals(matrix.getTile(new Coordinate(cur.x-1, cur.y))))
+                {
+    
+                    match = true;
+                    explore.add(new Coordinate(cur.x-1, cur.y));
+                    matched.add(new Coordinate(cur.x-1, cur.y));
+
+                }
+    
+                if(matrix.checkXRange(cur.x) && matrix.checkYRange(cur.y+1) 
+                && (!explore.contains(new Coordinate(cur.x, cur.y+1)))
+                && (!visited.contains(new Coordinate(cur.x, cur.y+1))) 
+                && matrix.getTile(cur).equals(matrix.getTile(new Coordinate(cur.x, cur.y+1))))
+                {
+                    match = true;
+                    explore.add(new Coordinate(cur.x, cur.y+1));
+                    matched.add(new Coordinate(cur.x, cur.y+1));
+                }
+    
+                if (match == true)
+                {
+                    matched.add(coordinate);
+                }    
+           }
+       }
+        return matched;
     }
 }
