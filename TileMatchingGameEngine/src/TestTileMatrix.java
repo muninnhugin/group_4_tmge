@@ -9,15 +9,15 @@ import tmge.*;
 
 public class TestTileMatrix {
     public static void main(String args[]) throws Exception{
-        TileMatrix matrix = new TileMatrix(5, 5);
+        TileMatrix matrix = new TileMatrix(10, 10);
         FullSpawn fp = new FullSpawn();
         fp.spawn(matrix);
         matrix.print();
 
         Set<Coordinate> toMatch = new HashSet<>();
         toMatch.add(new Coordinate(3,3));
-        TileMatchingLogic hml = new HorizontalMatching();
-        TileMatchingLogic vml = new VerticalMatching();
+        TileMatchingLogic hml = new HorizontalMatching(3);
+        TileMatchingLogic vml = new VerticalMatching(3);
         ArrayList<TileMatchingLogic> tmlList = new ArrayList<>();
         tmlList.add(hml);
         tmlList.add(vml);
