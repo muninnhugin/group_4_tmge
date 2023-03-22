@@ -15,19 +15,16 @@ public class HorizontalMatching implements TileMatchingLogic{
         {
             Coordinate cur = new Coordinate(coordinate.x, coordinate.y);
             // while this tile is in border and is same
-            while(matrix.checkYRange(cur.y))
+            while(matrix.checkYRange(cur.y) && matrix.isSameColor(matrix.getTile(coordinate), matrix.getTile(cur)))
             {
-                if(matrix.isSameColor(matrix.getTile(coordinate), matrix.getTile(cur)))
-                // add coord into matched
-                    matched.add(new Coordinate(cur));
+                matched.add(new Coordinate(cur));
                 cur.y += 1;
             }
 
             cur = new Coordinate(coordinate.x, coordinate.y);
             while(matrix.checkYRange(cur.y) && matrix.isSameColor(matrix.getTile(coordinate), matrix.getTile(cur)))
             {
-                if(matrix.isSameColor(matrix.getTile(coordinate), matrix.getTile(cur)))
-                    matched.add(new Coordinate(cur));
+                matched.add(new Coordinate(cur));
                 cur.y -= 1;
             }
         }
