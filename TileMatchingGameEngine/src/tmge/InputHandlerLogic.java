@@ -2,9 +2,8 @@ package tmge;
 
 import java.util.Scanner;
 
-public class InputHandlerLogic {
+class InputHandlerLogic {
     Scanner in;
-
 
     InputHandlerLogic() {
         in = new Scanner(System.in);

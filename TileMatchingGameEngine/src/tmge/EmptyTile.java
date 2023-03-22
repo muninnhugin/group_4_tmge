@@ -2,11 +2,11 @@ package tmge;
 
 public class EmptyTile extends Tile {
 
-    EmptyTile()
+    EmptyTile(Coordinate coordinate)
     {
         color = "empty";
-        coordinate = new Coordinate(-1, -1);
-//        shape = new Shape();
+        this.coordinate = coordinate;
+        shape = null;
     }
 
     public String getColor() {
