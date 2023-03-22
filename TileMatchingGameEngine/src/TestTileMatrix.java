@@ -9,7 +9,7 @@ import tmge.*;
 
 public class TestTileMatrix {
     public static void main(String args[]) throws Exception{
-        TileMatrix matrix = new TileMatrix(5, 5);
+        TileMatrix matrix = new TileMatrix(10, 10);
         FullSpawn fp = new FullSpawn();
         System.out.println("Hello, World!");
 
@@ -19,10 +19,8 @@ public class TestTileMatrix {
 
         Set<Coordinate> toMatch = new HashSet<>();
         toMatch.add(new Coordinate(3,3));
-        System.out.println("Hello, World!");
-       // TileMatchingLogic hml = new HorizontalMatching();
-       // TileMatchingLogic vml = new VerticalMatching();
-        TileMatchingLogic n = new NeighborMatching();
+        TileMatchingLogic hml = new HorizontalMatching(3);
+        TileMatchingLogic vml = new VerticalMatching(3);
         ArrayList<TileMatchingLogic> tmlList = new ArrayList<>();
         tmlList.add(n);
        // tmlList.add(hml);

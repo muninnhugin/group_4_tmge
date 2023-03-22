@@ -8,6 +8,13 @@ import tmge.TileMatrix;
 
 public class HorizontalMatching implements TileMatchingLogic{
 
+    int minimumToWatch;
+
+    public HorizontalMatching(int minimumToWatch)
+    {
+        this.minimumToWatch = minimumToWatch;
+    }
+
     @Override
     public Set<Coordinate> match(Set<Coordinate> coords, TileMatrix matrix) throws Exception {
         Set<Coordinate> matched = new HashSet<Coordinate>();
@@ -28,6 +35,9 @@ public class HorizontalMatching implements TileMatchingLogic{
                 cur.y -= 1;
             }
         }
+
+        if(matched.size() < minimumToWatch)
+            return new HashSet<>();
 
         return matched;
     }
