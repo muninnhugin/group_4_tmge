@@ -9,11 +9,7 @@ public class TileMatrix {
         setBoard(new Tile[row][col]);
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
-<<<<<<< HEAD
-                getBoard()[i][j] = new EmptyTile();
-=======
                 board[i][j] = new EmptyTile(new Coordinate(i, j));
->>>>>>> 206d131dd734295f8bdb71772870c3a0d6050366
             }
         }
         this.row = row;
@@ -42,12 +38,7 @@ public class TileMatrix {
     }
     public void setEmpty(Coordinate coordinate)
     {
-<<<<<<< HEAD
-        //java has its own garbage collecting
-        getBoard()[coordinate.x][coordinate.y] = new EmptyTile();
-=======
         board[coordinate.x][coordinate.y] = new EmptyTile(coordinate);
->>>>>>> 206d131dd734295f8bdb71772870c3a0d6050366
 
     }
 
