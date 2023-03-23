@@ -39,28 +39,30 @@ public class TestTileMatrix {
 
         ArrayList<TileMatchingLogic> tmlList = new ArrayList<>();
         TileMatchingLogic hml = new HorizontalMatching(3);
-    //     TileMatchingLogic vml = new VerticalMatching(3);
+        TileMatchingLogic vml = new VerticalMatching(3);
     //     TileMatchingLogic n = new NeighborMatching();
     //     tmlList.add(n);
-    //     tmlList.add(vml);
+        tmlList.add(vml);
         tmlList.add(hml);
     
         LineMatching lineMatching = new LineMatching(tmlList);
 
         Set<Coordinate> matched = lineMatching.match(toMatch, matrix);
+
         GravityDestructionLogic upd = new GravityDestructionLogic();
-        while (matched.size() > 1) {
-            lineMatching.match(toMatch, matrix);
-            upd.removeMatch(matrix, matched);
-        }
+        // while (matched.size() > 1) {
+        //     lineMatching.match(toMatch, matrix);
+        //     upd.removeMatch(matrix, matched);
+        // }
         System.out.println("Matched coordinates: ");
         for(Coordinate coordinate : matched)
         {   
            System.out.println(coordinate.x + ", " + coordinate.y);
         }
 
-    //     System.out.println("Remove matches");
-    //     upd.destroy(matrix);
+        System.out.println("Remove matches");
+        upd.removeMatch(matrix, matched);
+        upd.destroy(matrix);
         matrix.printM(matrix); //for testing
 
         

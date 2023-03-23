@@ -4,7 +4,6 @@ public abstract class Tile {
 //    public void setTile(String color, Coordinate coordinate, Shape shape);
     String color;
     Shape shape;
-    Coordinate coordinate;
 
     public Tile(){
         
@@ -17,7 +16,6 @@ public abstract class Tile {
     {
         this.color = toCopy.color;
         this.shape = toCopy.shape;
-        this.coordinate = toCopy.coordinate;
     }
 
     @Override

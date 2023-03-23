@@ -3,10 +3,9 @@ package tmge;
 public class VisibleTile extends Tile{
     public static final String[] COLORS = {"R", "Y", "G", "B", "P"};
 
-    public VisibleTile(String color, Coordinate coordinate, Shape shape)
+    public VisibleTile(String color, Shape shape)
     {
         this.color = color;
-        this.coordinate = coordinate;
         this.shape = shape;
     }
 
@@ -14,16 +13,8 @@ public class VisibleTile extends Tile{
         this.color = color;
     }
 
-    public void setCoordinate(Coordinate coordinate) {
-        this.coordinate = coordinate;
-    }
-
     public void setShape(Shape shape) {
         this.shape = shape;
-    }
-
-    public Coordinate getCoordinate() {
-        return coordinate;
     }
 
     public String getColor() {
