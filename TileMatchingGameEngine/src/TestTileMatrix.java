@@ -50,10 +50,6 @@ public class TestTileMatrix {
         Set<Coordinate> matched = lineMatching.match(toMatch, matrix);
 
         GravityDestructionLogic upd = new GravityDestructionLogic();
-        // while (matched.size() > 1) {
-        //     lineMatching.match(toMatch, matrix);
-        //     upd.removeMatch(matrix, matched);
-        // }
         System.out.println("Matched coordinates: ");
         for(Coordinate coordinate : matched)
         {   
@@ -61,12 +57,10 @@ public class TestTileMatrix {
         }
 
         System.out.println("Remove matches");
-        upd.removeMatch(matrix, matched);
-        upd.destroy(matrix);
+        upd.destroy(matched, matrix, false);
         matrix.printM(matrix); //for testing
-
-        
-       
-
+        System.out.println("Respawn empty tiles");
+        upd.respawn(matrix);
+        matrix.printM(matrix);
     }
 }

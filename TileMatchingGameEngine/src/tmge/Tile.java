@@ -34,4 +34,9 @@ public abstract class Tile {
         return true;
     }
 
+    public boolean isEmpty()
+    {
+        return color.equals("empty");
+    }
+
 }

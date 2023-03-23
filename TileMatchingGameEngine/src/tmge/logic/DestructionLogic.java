@@ -15,8 +15,6 @@ public abstract class DestructionLogic implements TileDestructionLogic {
                 {
                     matrix.setEmpty(coord);
                 }
-
-
             }
         }
     }
