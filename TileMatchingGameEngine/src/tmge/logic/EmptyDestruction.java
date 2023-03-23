@@ -2,7 +2,7 @@ package tmge.logic;
 
 import tmge.*;
 
-public class EmptyDestruction implements TileDestructionLogic {
+public class EmptyDestruction extends DestructionLogic {
     @Override
     public void destroy(TileMatrix board) throws Exception {
         return;

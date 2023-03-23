@@ -6,6 +6,21 @@
     "configurations": [
         {
             "type": "java",
+            "name": "hellofx",
+            "request": "launch",
+            "mainClass": "tmgeclient.hellofx",
+            "projectName": "TileMatchingGameEngine_e58c8ba4",
+            "vmArgs": "--module-path lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "TestTileMatrix",
+            "request": "launch",
+            "mainClass": "TestTileMatrix",
+            "projectName": "TileMatchingGameEngine_e58c8ba4"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
@@ -24,13 +39,5 @@
             "mainClass": "tmge.App",
             "projectName": "TileMatchingGameEngine_9ad7f2de"
         },
-        {
-            "type": "java",
-            "name": "hellofx",
-            "request": "launch",
-            "mainClass": "tmgeclient.hellofx",
-            "projectName": "TileMatchingGameEngine_9ad7f2de",
-            "vmArgs": "--module-path lib --add-modules javafx.controls,javafx.fxml",
-        }
     ]
 }

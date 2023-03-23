@@ -2,7 +2,7 @@ package tmge;
 
 public class EmptyTile extends Tile {
 
-    EmptyTile()
+    public EmptyTile()
     {
         color = "empty";
         coordinate = new Coordinate(-1, -1);

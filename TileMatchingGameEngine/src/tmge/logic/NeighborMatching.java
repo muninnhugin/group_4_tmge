@@ -46,7 +46,6 @@ public class NeighborMatching implements TileMatchingLogic{
                 && (!explore.contains(new Coordinate(cur.x+1, cur.y))) 
                 && matrix.getTile(cur).equals(matrix.getTile(new Coordinate(cur.x+1, cur.y))))
                 {
-                   
                     match = true;
                     explore.add(new Coordinate(cur.x+1, cur.y));
                     matched.add(new Coordinate(cur.x+1, cur.y));

@@ -6,14 +6,22 @@ public class TileMatrix {
     private int col;
 
     public TileMatrix(int row, int col) {
-        board = new Tile[row][col];
+        setBoard(new Tile[row][col]);
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
-                board[i][j] = new EmptyTile();
+                getBoard()[i][j] = new EmptyTile();
             }
         }
         this.row = row;
         this.col = col;
+    }
+
+    public Tile[][] getBoard() {
+        return board;
+    }
+
+    public void setBoard(Tile[][] board) {
+        this.board = board;
     }
 
     public void printM(TileMatrix matrix)
@@ -21,7 +29,7 @@ public class TileMatrix {
         for (int i = 0; i < matrix.getRow(); i++) {
             for (int j = 0; j < matrix.getColumn(); j++) {
                 //Coordinate coord = new Coordinate(i,j);
-                System.out.print(board[i][j].getColor());
+                System.out.print(getBoard()[i][j].getColor());
                 System.out.print(" ");
             }
             System.out.println("");
@@ -32,19 +40,20 @@ public class TileMatrix {
     }
     public void setEmpty(Coordinate coordinate)
     {
-        board[coordinate.x][coordinate.y] = new EmptyTile();
+        //java has its own garbage collecting
+        getBoard()[coordinate.x][coordinate.y] = new EmptyTile();
 
     }
 
     public int getRowTotal()
     {
-        return this.board.length;
+        return this.getBoard().length;
     
     }
 
     public int getColTotal()
     {
-       return this.board[0].length;
+       return this.getBoard()[0].length;
     
     }
 
@@ -59,19 +68,32 @@ public class TileMatrix {
     public void print() {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
-                System.out.print(this.board[i][j].getColor()+ " ");
+                System.out.print(this.getBoard()[i][j].getColor()+ " ");
             }
             System.out.println();
         }
     }
 
     public void setTile(Coordinate coord, Tile tile) throws Exception {
-        board[coord.x][coord.y] = tile;
+        getBoard()[coord.x][coord.y] = tile;
+    }
+
+    public void swapTiles(Coordinate coord1, Coordinate coord2) throws Exception {
+        Tile temp = getTile(coord1);
+        setTile(coord1, getTile(coord2));
+        setTile(coord2, temp);
+        System.out.println("coordinate 1: "+ getTile(coord1).coordinate.x + ", "+getTile(coord1).coordinate.y);
+        System.out.println("coordinate 2: "+ getTile(coord2).coordinate.x + ", "+getTile(coord2).coordinate.y + "\n");
+
+        getTile(coord1).coordinate = new Coordinate(coord1);
+        getTile(coord2).coordinate = new Coordinate(coord2);
+        System.out.println("coordinate 1: "+ getTile(coord1).coordinate.x + ", "+getTile(coord1).coordinate.y);
+        System.out.println("coordinate 2: "+ getTile(coord2).coordinate.x + ", "+getTile(coord2).coordinate.y + "\n");
     }
 
     public Tile getTile(Coordinate coord)
     {
-        return board[coord.x][coord.y];
+        return getBoard()[coord.x][coord.y];
     }
 
     public boolean checkRange(Coordinate coord) {
