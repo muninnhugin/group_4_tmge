@@ -1,32 +1,54 @@
 package tmge.logic;
 import tmge.*;
 
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+
 //1. go through the matrix and if its part of matched set, set to empty 
 //2. if there's an empty spot, move all pieces down by one cell (if smth above)
                             // move all pieces to the side by one cell  (if nothing above/if smth next to)
 
 public class GravityDestructionLogic extends DestructionLogic {
-
-
     @Override
-    public void destroy(TileMatrix tm) throws Exception {
-        int temp;
-        for (int i = tm.getRow() - 1; i < 0; i-- ){
-            for (int j = 0; j < tm.getColumn(); j++){
-                if (tm.getBoard()[i][j].getColor() == "empty"){
-                    temp = i;
-                    while (tm.getBoard()[temp][j].getColor() != "empty"){
-                        temp--;
-                    }
-                    //swap tile between [i][j] and [temp][j]
-                    tm.swapTiles(new Coordinate(temp, j), new Coordinate(i, j));
-                   
+    public void destroy(Set<Coordinate> matched, TileMatrix board) throws Exception {
+        destroy(matched, board, true);
+    }
+
+    public void destroy(Set<Coordinate> matched, TileMatrix tm, boolean respawn) throws Exception {
+        super.removeMatch(tm, matched);
+        // make a set of cols of which is there matched tiles
+        Set<Integer> cols = new HashSet<>();
+        for(Coordinate coordinate : matched)
+        {
+            cols.add(coordinate.y);
+        }
+
+        // sort col by empty and visible using insertion sort
+        for(int col : cols)
+        {
+            for(int i = 1; i < tm.getRow(); ++i)
+            {
+                int j = i;
+                while(j > 0 && tm.getTile(new Coordinate(j, col)).isEmpty())
+                {
+                    tm.swapTiles(new Coordinate(j, col), new Coordinate(j - 1, col));
+                    --j;
                 }
             }
         }
 
+        if(respawn) respawn(tm);
     }
 
-
-    
+    public void respawn(TileMatrix tm) throws Exception {
+        Random rn = new Random();
+        int n = VisibleTile.COLORS.length - 1;
+        for (int i = 0; i < tm.getRow(); ++i)
+            for (int j = 0; j < tm.getColumn(); ++j) {
+                Coordinate coordinate = new Coordinate(i, j);
+                if (tm.getTile(coordinate).isEmpty())
+                    tm.setTile(coordinate, new VisibleTile(VisibleTile.COLORS[rn.nextInt(n)], new Circle()));
+            }
+    }
 }

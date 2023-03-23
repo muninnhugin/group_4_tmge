@@ -14,7 +14,7 @@ public class FullSpawn implements TileSpawnLogic {
         for (int i = 0; i < board.getRow(); i++){
             for (int j = 0; j < board.getColumn(); j++){
                 Coordinate coord = new Coordinate(i, j);
-                VisibleTile tile = new VisibleTile(VisibleTile.COLORS[idx], coord, new Circle());
+                VisibleTile tile = new VisibleTile(VisibleTile.COLORS[idx], new Circle());
                 board.setTile(coord, tile);
 
                 idx = rn.nextInt(n);
