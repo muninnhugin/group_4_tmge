@@ -87,6 +87,11 @@ public class TileMatrix {
         System.out.println("coordinate 1: "+ getTile(coord1).coordinate.x + ", "+getTile(coord1).coordinate.y);
         System.out.println("coordinate 2: "+ getTile(coord2).coordinate.x + ", "+getTile(coord2).coordinate.y + "\n");
     }
+    //checks if the two inputs from the users are adjacent 
+    public boolean checkAdjacent(Coordinate c1, Coordinate c2) {
+        int adj = c1.x + c1.y - c2.x - c2.y;
+        return (adj == 1 || adj == -1);
+    }
 
     public Tile getTile(Coordinate coord)
     {

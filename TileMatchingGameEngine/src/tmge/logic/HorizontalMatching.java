@@ -28,7 +28,7 @@ public class HorizontalMatching implements TileMatchingLogic{
                 cur.y += 1;
             }
 
-            cur = new Coordinate(coordinate.x, coordinate.y);
+            cur = new Coordinate(coordinate.x, coordinate.y - 1);
             while(matrix.checkRange(cur) && matrix.getTile(coordinate).equals(matrix.getTile(cur)))
             {
                 matched.add(new Coordinate(cur));

@@ -29,7 +29,7 @@ public class VerticalMatching implements TileMatchingLogic{
                 cur.x += 1;
             }
 
-            cur = new Coordinate(coordinate.x, coordinate.y);
+            cur = new Coordinate(coordinate.x - 1, coordinate.y);
             while(matrix.checkRange(cur) && matrix.getTile(coordinate).equals(matrix.getTile(cur)))
             {
                 matched.add(new Coordinate(cur));
