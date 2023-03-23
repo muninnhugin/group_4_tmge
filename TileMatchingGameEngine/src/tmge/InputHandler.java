@@ -2,7 +2,7 @@ package tmge;
 
 import java.util.Scanner;
 
-class InputHandler {
+public class InputHandler {
     TMGE tmge;
     Scanner in;
 
@@ -17,7 +17,7 @@ class InputHandler {
             String line = in.nextLine().strip();
             if (!line.isBlank()) {
                 if (line.matches("\\d \\d")) {
-                    Coordinate parsedInput = new Coordinate(line.charAt(0), line.charAt(2));
+                    Coordinate parsedInput = new Coordinate(Character.getNumericValue(line.charAt(0)), Character.getNumericValue(line.charAt(2)));
                     if (tmge.getMatrix().checkRange(parsedInput)) return parsedInput;
                 }
             } 
@@ -26,7 +26,7 @@ class InputHandler {
                 return null;
             }
             */
-        } while (result != null);
+        } while (result == null);
         return null;
     }
 }

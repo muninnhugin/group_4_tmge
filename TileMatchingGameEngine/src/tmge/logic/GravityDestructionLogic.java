@@ -11,8 +11,8 @@ import java.util.Set;
 
 public class GravityDestructionLogic extends DestructionLogic {
     @Override
-    public void destroy(Set<Coordinate> matched, TileMatrix board) throws Exception {
-        destroy(matched, board, true);
+    public void destroy(Set<Coordinate> matched, TMGE tmge) throws Exception {
+        destroy(matched, tmge.getMatrix(), true);
     }
 
     public void destroy(Set<Coordinate> matched, TileMatrix tm, boolean respawn) throws Exception {

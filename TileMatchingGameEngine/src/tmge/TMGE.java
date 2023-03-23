@@ -4,11 +4,12 @@ import tmge.logic.*;
 
 import java.util.*;
 
-public abstract class TMGE {
+public class TMGE {
    // Logics
    private ArrayList<TileMatchingLogic> matchingLogics = new ArrayList<>();
    private TileSpawnLogic spawn = null;
    private TileDestructionLogic destrction = null;
+   private MoveLogic move = null;
    private EndLogic end = null;
 
    // TMGE Components
@@ -35,9 +36,9 @@ public abstract class TMGE {
       matchingLogics.add(tml);
    }
 
-   public void setMatchingLogic(ArrayList<TileMatchingLogic> logics) {
+   public void setMatchingLogic(List<TileMatchingLogic> logics) {
       matchingLogics.clear();
-      matchingLogics = logics;
+      matchingLogics.addAll(logics);
    }
 
    public void setSpawnLogic(TileSpawnLogic tsl) {
@@ -50,6 +51,10 @@ public abstract class TMGE {
 
    public void setEndLogic(EndLogic el) {
       end = el;
+   }
+
+   public void setMoveLogic(MoveLogic ml) {
+      move = ml;
    }
 
    // GAME VARIABLES
@@ -69,6 +74,10 @@ public abstract class TMGE {
 
    public TileMatrix getMatrix() {
       return matrix;
+   }
+
+   public InputHandler getInputHandler() {
+      return input;
    }
 
    public int getPlayer() {
@@ -96,18 +105,20 @@ public abstract class TMGE {
    public void run() throws Exception {
       spawn.spawn(matrix);
       while (!isOver) {
-         Set<Coordinate> moves = new HashSet<>();
-         moves.add(input.makeMove());
+         turn++;
+         currentPlayer = (currentPlayer + 1) % ScoreArray.length;
+         Set<Coordinate> moves = move.getMove(this);
          
          Set<Coordinate> matched = new HashSet<>();
          do {
+            matched.clear();
             for (TileMatchingLogic tml : matchingLogics) {
                matched.addAll(tml.match(moves, matrix));
             }
 
-            destrction.destroy(matched, matrix);
+            destrction.destroy(matched, this);
             end.check(this);
-         } while (matched.size() != 0);
+         } while (matched.size() != 0 && !isOver);
       }
    }
 }
