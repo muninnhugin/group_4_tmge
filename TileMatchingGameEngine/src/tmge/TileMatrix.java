@@ -9,7 +9,11 @@ public class TileMatrix {
         setBoard(new Tile[row][col]);
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
+<<<<<<< HEAD
                 getBoard()[i][j] = new EmptyTile();
+=======
+                board[i][j] = new EmptyTile(new Coordinate(i, j));
+>>>>>>> 206d131dd734295f8bdb71772870c3a0d6050366
             }
         }
         this.row = row;
@@ -35,13 +39,15 @@ public class TileMatrix {
             System.out.println("");
     }
 
-    
-
     }
     public void setEmpty(Coordinate coordinate)
     {
+<<<<<<< HEAD
         //java has its own garbage collecting
         getBoard()[coordinate.x][coordinate.y] = new EmptyTile();
+=======
+        board[coordinate.x][coordinate.y] = new EmptyTile(coordinate);
+>>>>>>> 206d131dd734295f8bdb71772870c3a0d6050366
 
     }
 
@@ -107,23 +113,4 @@ public class TileMatrix {
     public Boolean checkXRange(int x) {
         return !(x < 0 || x >= col);
     }
-
-    // Any logic more complex like spawn patterns, initialization should be done in the appropriate logic classes.
-    
-
-    /*  if fullspawn(Randomized tiles){
-        for i in range row:
-            for j in range col:
-                random color
-                board[i][j].setTile(new Tile(color))
-    }
-
-    [[Tile(yellow), Tile(red)],
-    [],
-    []]
-
-
-    
-    */  
-
-    }
+}
