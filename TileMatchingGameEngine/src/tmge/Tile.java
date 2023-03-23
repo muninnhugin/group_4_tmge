@@ -5,8 +5,19 @@ public abstract class Tile {
     String color;
     Shape shape;
     Coordinate coordinate;
-    String getColor(){
+
+    public Tile(){
+        
+    }
+    public String getColor(){
         return color;
+    }
+
+    public Tile(Tile toCopy)
+    {
+        this.color = toCopy.color;
+        this.shape = toCopy.shape;
+        this.coordinate = toCopy.coordinate;
     }
 
     @Override
@@ -24,4 +35,5 @@ public abstract class Tile {
             return false;
         return true;
     }
+
 }

@@ -9,23 +9,37 @@ import tmge.*;
 
 public class TestTileMatrix {
     public static void main(String args[]) throws Exception{
-        TileMatrix matrix = new TileMatrix(5, 5);
+        TileMatrix matrix = new TileMatrix(10, 10);
         FullSpawn fp = new FullSpawn();
         System.out.println("Hello, World!");
 
         //HalfSpawn fp = new HalfSpawn();
         fp.spawn(matrix);
         matrix.print();
+<<<<<<< HEAD
+        System.out.println("Hello, World!");
+        Set<Coordinate> toMatch = new HashSet<>();
+        Coordinate myCoordinate = new Coordinate(3,2);
+        toMatch.add(myCoordinate);
+
+
+
+        matrix.print();
+        
+       TileMatchingLogic hml = new HorizontalMatching();
+       // TileMatchingLogic vml = new VerticalMatching();
+
+        TileMatchingLogic n = new NeighborMatching();
+=======
 
         Set<Coordinate> toMatch = new HashSet<>();
         toMatch.add(new Coordinate(3,3));
-        System.out.println("Hello, World!");
-       // TileMatchingLogic hml = new HorizontalMatching();
-       // TileMatchingLogic vml = new VerticalMatching();
-        TileMatchingLogic n = new NeighborMatching();
+        TileMatchingLogic hml = new HorizontalMatching(3);
+        TileMatchingLogic vml = new VerticalMatching(3);
+>>>>>>> 206d131dd734295f8bdb71772870c3a0d6050366
         ArrayList<TileMatchingLogic> tmlList = new ArrayList<>();
         tmlList.add(n);
-       // tmlList.add(hml);
+        tmlList.add(hml);
         //tmlList.add(vml);
         LineMatching lineMatching = new LineMatching(tmlList);
 
@@ -39,8 +53,10 @@ public class TestTileMatrix {
         System.out.println("Remove matches");
         GravityDestructionLogic upd = new GravityDestructionLogic();
         upd.removeMatch(matrix, matched);
+        upd.destroy(matrix);
         matrix.printM(matrix); //for testing
 
+        
        
 
     }

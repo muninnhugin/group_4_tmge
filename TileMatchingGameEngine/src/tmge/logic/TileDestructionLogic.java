@@ -1,4 +1,6 @@
-package tmge;
+package tmge.logic;
+
+import tmge.TileMatrix;
 
 public interface TileDestructionLogic {
  
