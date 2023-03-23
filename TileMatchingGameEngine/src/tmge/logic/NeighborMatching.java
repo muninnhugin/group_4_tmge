@@ -23,13 +23,13 @@ public class NeighborMatching implements TileMatchingLogic{
        {    Set<Coordinate> visited = new HashSet<Coordinate>(); 
             Queue<Coordinate> explore = new LinkedList<>();
         
+            Boolean match = false;
             Coordinate cur = new Coordinate(coordinate.x, coordinate.y);
          
             explore.add(cur);
 
             while(!explore.isEmpty()) {       
               
-                Boolean match = false;
                 cur = explore.remove();
 
                 if (!matrix.checkRange(cur))
