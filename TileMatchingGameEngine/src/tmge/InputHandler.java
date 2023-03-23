@@ -2,10 +2,12 @@ package tmge;
 
 import java.util.Scanner;
 
-class InputHandlerLogic {
+class InputHandler {
+    TMGE tmge;
     Scanner in;
 
-    InputHandlerLogic() {
+    InputHandler(TMGE tmge) {
+        this.tmge = tmge;
         in = new Scanner(System.in);
     }
     
@@ -15,11 +17,15 @@ class InputHandlerLogic {
             String line = in.nextLine().strip();
             if (!line.isBlank()) {
                 if (line.matches("\\d \\d")) {
-                    return new Coordinate(line.charAt(0), line.charAt(2));
+                    Coordinate parsedInput = new Coordinate(line.charAt(0), line.charAt(2));
+                    if (tmge.getMatrix().checkRange(parsedInput)) return parsedInput;
                 }
-            } else {
+            } 
+            /* For GUI implementation
+            else {
                 return null;
             }
+            */
         } while (result != null);
         return null;
     }
