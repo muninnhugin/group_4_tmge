@@ -78,7 +78,7 @@ public class TileMatrix {
                 System.out.print(this.getBoard()[i][j].getColor()+ "   ");
             }
             System.out.println("\n");
-            coord = 0;
+            coord++;
         }
     }
 
