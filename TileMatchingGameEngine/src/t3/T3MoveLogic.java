@@ -12,7 +12,7 @@ public class T3MoveLogic implements MoveLogic {
         Coordinate coord;
         do {
             coord = tmge.getInputHandler().makeMove();
-        } while (tmge.getMatrix().getTile(coord).isEmpty());
+        } while (!tmge.getMatrix().getTile(coord).isEmpty());
         VisibleTile tile;
         switch (tmge.getPlayer()) {
             case 0:
