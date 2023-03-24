@@ -14,18 +14,20 @@ public class TMGE {
 
    // TMGE Components
    private InputHandler input = new InputHandler(this);
+   private PlayerManager playerManager = new PlayerManager();
    
    // Game Variables
    private TileMatrix matrix = null;
-   private int[] ScoreArray = null;
+   
    private int currentPlayer = 0;
    private int turn = 0;
    private boolean isOver = false;
 
-   public TMGE(int i, int j, int players) {
-      matrix = new TileMatrix(i, j);
-      ScoreArray = new int[players];
-      Arrays.fill(ScoreArray, 0);
+   public TMGE(int row, int col, int players) {
+      matrix = new TileMatrix(row, col);
+      for (int i = 0; i != players; i++) {
+         playerManager.makePlayer();
+      }
    }
 
    // SETTERS
@@ -59,11 +61,11 @@ public class TMGE {
 
    // GAME VARIABLES
    public void setCurrentScore(int score) {
-      ScoreArray[currentPlayer] = score;
+      playerManager.getPlayerList().get(currentPlayer).score = score;
    }
 
    public void setScore(int player, int score) {
-      ScoreArray[player] = score;
+      playerManager.getPlayerList().get(player).score = score;
    }
 
    public void setEnd(boolean e) {
@@ -85,11 +87,11 @@ public class TMGE {
    }
 
    public int getCurrentScore() {
-      return ScoreArray[currentPlayer];
+      return playerManager.getPlayerList().get(currentPlayer).score;
    }
 
    public int getScore(int player) {
-      return ScoreArray[player];
+      return playerManager.getPlayerList().get(player).score;
    }
 
    public int getTurn() {
@@ -106,7 +108,7 @@ public class TMGE {
       spawn.spawn(matrix);
       while (!isOver) {
          turn++;
-         currentPlayer = (currentPlayer + 1) % ScoreArray.length;
+         currentPlayer = (currentPlayer + 1) % playerManager.getPlayerList().size();
          Set<Coordinate> moves = move.getMove(this);
          
          Set<Coordinate> matched = new HashSet<>();

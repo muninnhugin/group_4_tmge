@@ -16,7 +16,8 @@
             "name": "TicTacToe",
             "request": "launch",
             "mainClass": "t3.TicTacToe",
-            "projectName": "TileMatchingGameEngine_d269a5c9"
+            "projectName": "TileMatchingGameEngine_d269a5c9",
+            "vmArgs": "--enable-preview"
         },
         {
             "type": "java",
