@@ -12,18 +12,28 @@ public class SGMoveLogic implements MoveLogic {
     public Set<Coordinate> getMove(TMGE tmge) throws Exception {
         Set<Coordinate> selected = new HashSet<>();
         tmge.getMatrix().print();
-        Coordinate coordinate = getCoordinate();
+        Coordinate coordinate = getCoordinate(tmge.getMatrix());
         selected.add(coordinate);
         return selected;
     }
 
-    private Coordinate getCoordinate()
+    private Coordinate getCoordinate(TileMatrix tm)
     {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter 1st coordinate x: ");
         int inputX = input.nextInt();
         System.out.print("Enter 1st coordinate y: ");
         int inputY = input.nextInt();
-        return new Coordinate(inputX, inputY);
+        Coordinate coordinate = new Coordinate(inputX, inputY);
+        while(!tm.checkRange(coordinate))
+        {
+            System.out.println("Invalid range for coordinates, please try again.");
+            System.out.print("Enter 1st coordinate x: ");
+            inputX = input.nextInt();
+            System.out.print("Enter 1st coordinate y: ");
+            inputY = input.nextInt();
+            coordinate = new Coordinate(inputX, inputY);
+        }
+        return coordinate;
     }
 }
