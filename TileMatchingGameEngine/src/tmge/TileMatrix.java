@@ -26,7 +26,6 @@ public class TileMatrix {
 
     public void printM(TileMatrix matrix)
     {
-        String filled = StringUtils.repeat"--", 10);(
         for (int i = 0; i < matrix.getRow(); i++) {
             
             for (int j = 0; j < matrix.getColumn(); j++) {
@@ -65,11 +64,21 @@ public class TileMatrix {
     }
 
     public void print() {
+        int coord = 0;
+        System.out.print("    ");
+        for (int i = 0; i < row; i++){
+            System.out.print(" "+coord+"  ");
+            coord++;
+        }
+        System.out.println("\n");
+        coord = 0;
         for (int i = 0; i < row; i++) {
+            System.out.print(coord+"  | ");
             for (int j = 0; j < col; j++) {
-                System.out.print(this.getBoard()[i][j].getColor()+ " ");
+                System.out.print(this.getBoard()[i][j].getColor()+ "   ");
             }
-            System.out.println();
+            System.out.println("\n");
+            coord = 0;
         }
     }
 
