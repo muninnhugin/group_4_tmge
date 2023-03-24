@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Bejeweled",
+            "request": "launch",
+            "mainClass": "Bejeweled",
+            "projectName": "TileMatchingGameEngine_e58c8ba4"
+        },
+        {
+            "type": "java",
+            "name": "TicTacToe",
+            "request": "launch",
+            "mainClass": "t3.TicTacToe",
+            "projectName": "TileMatchingGameEngine_e58c8ba4"
+        },
+        {
+            "type": "java",
             "name": "TicTacToe",
             "request": "launch",
             "mainClass": "t3.TicTacToe",
