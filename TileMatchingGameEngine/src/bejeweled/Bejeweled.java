@@ -6,8 +6,9 @@ import tmge.logic.*;
 
 public class Bejeweled {
     public static void main(String[] args) {
+        System.out.println("---------Bejeweled---------");
         TMGE tmge = new TMGE(5, 5, 1);
-        tmge.setSpawnLogic(new EmptySpawn());
+        tmge.setSpawnLogic(new FullSpawn());
         tmge.setMatchingLogic(List.of(new HorizontalMatching(3), new VerticalMatching(3)));
         tmge.setDestructionLogic(new GravityDestructionLogic(true));
         tmge.setEndLogic(new TurnLimitEndLogic());
