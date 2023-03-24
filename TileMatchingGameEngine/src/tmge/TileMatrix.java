@@ -26,7 +26,6 @@ public class TileMatrix {
 
     public void printM(TileMatrix matrix)
     {
-        String filled = StringUtils.repeat"--", 10);(
         for (int i = 0; i < matrix.getRow(); i++) {
             
             for (int j = 0; j < matrix.getColumn(); j++) {
