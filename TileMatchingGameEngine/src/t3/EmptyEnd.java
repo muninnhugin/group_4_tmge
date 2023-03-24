@@ -1,6 +1,7 @@
 package t3;
 
 import tmge.*;
+import tmge.logic.EndLogic;
 
 public class EmptyEnd implements EndLogic{
     @Override

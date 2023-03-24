@@ -1,6 +1,5 @@
 package tmge.logic;
 
-import tmge.EndLogic;
 import tmge.TMGE;
 
 public class TurnLimitEndLogic implements EndLogic{

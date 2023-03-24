@@ -12,7 +12,7 @@ public class Bejeweled {
         tmge.setMatchingLogic(List.of(new HorizontalMatching(3), new VerticalMatching(3)));
         tmge.setDestructionLogic(new GravityDestructionLogic(true));
         tmge.setEndLogic(new TurnLimitEndLogic());
-        tmge.setMoveLogic(new T3MoveLogic());
+        tmge.setMoveLogic(new BejeweledMoveLogic());
         try {
             tmge.run();
         } catch (Exception e) {
