@@ -1,26 +1,23 @@
 import java.util.ArrayList;
+import java.util.List;
+
+import tmge.TMGE;
 import tmge.logic.*;
 
 public class Bejeweled {
-    Bejeweled () throws Exception {
-        int gameID; //for real time multiplayer game
-        SameGame myGame = new SameGame();
+    public static void main(String[] args){
+        TMGE tmge = new TMGE(5, 5, 1);
+        tmge.setSpawnLogic(new FullSpawn());
+        tmge.setMatchingLogic(List.of(new HorizontalMatching(3), new VerticalMatching(3)));
+        tmge.setDestructionLogic(new GravityDestructionLogic());
+        tmge.setEnd(false);
+        tmge.setMoveLogic(null);
+        try{
+            tmge.run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        //WHERE we want the board,
-        ArrayList<TileMatchingLogic> tmlList = {new VerticalMatching(), new HorizontalMatching()};
-        myGame.setMatchingLogic(tmlList);
-        myGame.setTileMatrix(6,6);
-        myGame.setSpawnLogic(new FullSpawn());
-        myGame.setDestructionLogic(new GravityDestructionLogic());
-        myGame.setPlayers(new ArrayList<Player>());
-        /* myGame.setGameOver()
-            ways to have the game over:
-                1. no more same neighboring tiles?
-                2. move limit
-                3. time limit
-        */
-        
-
-        
     }
+    
 }
