@@ -6,6 +6,14 @@
     "configurations": [
         {
             "type": "java",
+            "name": "hellofx",
+            "request": "launch",
+            "mainClass": "tmgeclient.hellofx",
+            "projectName": "TileMatchingGameEngine_d269a5c9",
+            "vmArgs": "--module-path C:\\Users\\Leeau\\Downloads\\openjfx-20_windows-x64_bin-sdk\\javafx-sdk-20\\lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
             "name": "Bejeweled",
             "request": "launch",
             "mainClass": "Bejeweled",

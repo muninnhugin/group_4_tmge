@@ -6,9 +6,9 @@ public class InputHandler {
     TMGE tmge;
     Scanner in;
 
-    InputHandler(TMGE tmge) {
+    InputHandler(TMGE tmge, Scanner in) {
         this.tmge = tmge;
-        in = new Scanner(System.in);
+        this.in = in;
     }
     
     public Coordinate makeMove() {

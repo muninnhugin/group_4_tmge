@@ -13,8 +13,9 @@ public class TMGE {
    private EndLogic end = null;
 
    // TMGE Components
-   private InputHandler input = new InputHandler(this);
-   private PlayerManager playerManager = new PlayerManager();
+   private Scanner in = new Scanner(System.in);
+   private InputHandler input = new InputHandler(this, in);
+   private PlayerManager playerManager = new PlayerManager(this, in);
    
    // Game Variables
    private TileMatrix matrix = null;
@@ -80,6 +81,10 @@ public class TMGE {
 
    public InputHandler getInputHandler() {
       return input;
+   }
+
+   public Scanner getInputScanner() {
+      return in;
    }
 
    public int getPlayer() {
