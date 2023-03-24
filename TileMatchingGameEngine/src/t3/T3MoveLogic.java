@@ -3,6 +3,7 @@ package t3;
 import java.util.Set;
 
 import tmge.*;
+import tmge.logic.*;
 
 public class T3MoveLogic implements MoveLogic {
 

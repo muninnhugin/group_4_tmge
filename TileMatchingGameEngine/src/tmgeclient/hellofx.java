@@ -62,6 +62,10 @@ public class hellofx extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        new Thread(() -> {
+            System.out.println("Woot");
+        }).start();
+        
         this.ps = primaryStage;
 
         TMGE tmge = new TMGE(3, 3, 2);
