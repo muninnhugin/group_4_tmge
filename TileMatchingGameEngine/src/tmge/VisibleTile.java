@@ -1,7 +1,8 @@
 package tmge;
 
 public class VisibleTile extends Tile{
-    public static final String[] COLORS = {"R", "Y", "G", "B", "P"};
+    // public static final String[] COLORS = {"R", "Y", "G", "B", "P"};
+    public static final String[] COLORS = {"O", "X", "+", "#", "A"};
 
     public VisibleTile(String color, Shape shape)
     {

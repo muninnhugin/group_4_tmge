@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Bejeweled",
+            "request": "launch",
+            "mainClass": "bejeweled.Bejeweled",
+            "projectName": "TileMatchingGameEngine_e58c8ba4"
+        },
+        {
+            "type": "java",
             "name": "hellofx",
             "request": "launch",
             "mainClass": "tmgeclient.hellofx",

@@ -27,6 +27,7 @@ public class TileMatrix {
     public void printM(TileMatrix matrix)
     {
         for (int i = 0; i < matrix.getRow(); i++) {
+            
             for (int j = 0; j < matrix.getColumn(); j++) {
                 //Coordinate coord = new Coordinate(i,j);
                 System.out.print(getBoard()[i][j].getColor());
@@ -65,9 +66,9 @@ public class TileMatrix {
     public void print() {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
-                System.out.print(this.getBoard()[i][j].getColor()+ " ");
+                System.out.print(this.getBoard()[i][j].getColor()+ "   ");
             }
-            System.out.println();
+            System.out.println("\n");
         }
     }
 
