@@ -4,7 +4,7 @@ import tmge.*;
 
 public class SameGame {
     public static void main(String[] args) {
-        TMGE tmge = new TMGE(10, 10, 1);
+        TMGE tmge = new TMGE(5, 5, 1);
         tmge.setSpawnLogic(new FullSpawn());
         tmge.setMatchingLogic(new NeighborMatching());
         tmge.setDestructionLogic(new GravityDestructionLogic(false));
