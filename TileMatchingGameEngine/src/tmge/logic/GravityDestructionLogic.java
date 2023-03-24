@@ -10,12 +10,16 @@ import java.util.Set;
                             // move all pieces to the side by one cell  (if nothing above/if smth next to)
 
 public class GravityDestructionLogic extends DestructionLogic {
-    @Override
-    public void destroy(Set<Coordinate> matched, TMGE tmge) throws Exception {
-        destroy(matched, tmge.getMatrix(), true);
+    private boolean respawn;
+
+    public GravityDestructionLogic(boolean respawn)
+    {
+        this.respawn = respawn;
     }
 
-    public void destroy(Set<Coordinate> matched, TileMatrix tm, boolean respawn) throws Exception {
+    @Override
+    public void destroy(Set<Coordinate> matched, TMGE tmge) throws Exception {
+        TileMatrix tm = tmge.getMatrix();
         super.removeMatch(tm, matched);
         // make a set of cols of which is there matched tiles
         Set<Integer> cols = new HashSet<>();
