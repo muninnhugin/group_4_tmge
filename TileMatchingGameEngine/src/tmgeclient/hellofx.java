@@ -62,24 +62,23 @@ public class hellofx extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        final TMGE tmge = new TMGE(3, 3, 2);
         new Thread(() -> {
-            System.out.println("Woot");
+            tmge.setSpawnLogic(new EmptySpawn());
+            tmge.setMatchingLogic(List.of(new HorizontalMatching(3), new VerticalMatching(3)));
+            tmge.setDestructionLogic(new T3Destruction());
+            tmge.setEndLogic(new EmptyEnd());
+            tmge.setMoveLogic(new T3MoveLogic());
+
+            try {
+                tmge.run();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }).start();
         
         this.ps = primaryStage;
 
-        TMGE tmge = new TMGE(3, 3, 2);
-        tmge.setSpawnLogic(new EmptySpawn());
-        tmge.setMatchingLogic(List.of(new HorizontalMatching(3), new VerticalMatching(3)));
-        tmge.setDestructionLogic(new T3Destruction());
-        tmge.setEndLogic(new EmptyEnd());
-        tmge.setMoveLogic(new T3MoveLogic());
-       
-        // try {
-        //     tmge.run();
-        // } catch (Exception e) {
-        //     e.printStackTrace();
-        // }
 
 
         Parent root = FXMLLoader.load(getClass().getResource("hellofx.fxml"));
