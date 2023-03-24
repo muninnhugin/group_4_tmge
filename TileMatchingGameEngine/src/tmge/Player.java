@@ -1,12 +1,11 @@
 package tmge;
 
 public class Player {
-    int uid;
-    String username;
-    int score;
+    public String username;
+    public int score;
 
-    public void click()//coordinates)
-    {
-        
+    public Player(String un) {
+        username = un;
+        score = 0;
     }
 }
