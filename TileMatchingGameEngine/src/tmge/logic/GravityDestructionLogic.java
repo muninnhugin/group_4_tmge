@@ -11,16 +11,28 @@ import java.util.Set;
 
 public class GravityDestructionLogic extends DestructionLogic {
     private boolean respawn;
+    private boolean updateScore;
 
     public GravityDestructionLogic(boolean respawn)
     {
         this.respawn = respawn;
+        this.updateScore = true;
     }
+
+    public GravityDestructionLogic(boolean respawn, boolean updateScore)
+    {
+        this.respawn = respawn;
+        this.updateScore = updateScore;
+    }
+
 
     @Override
     public void destroy(Set<Coordinate> matched, TMGE tmge) throws Exception {
         TileMatrix tm = tmge.getMatrix();
         super.removeMatch(tm, matched);
+
+        if(updateScore) tmge.setCurrentScore(tmge.getCurrentScore() + matched.size());
+
         // make a set of cols of which is there matched tiles
         Set<Integer> cols = new HashSet<>();
         for(Coordinate coordinate : matched)
