@@ -11,7 +11,7 @@ public class SGMoveLogic implements MoveLogic {
         System.out.println("      Round "+tmge.getTurn()+"\n");
         tmge.getMatrix().print();
         Coordinate c1;
-        System.out.println("First coordinate (x y): ");
+        System.out.println("Enter coordinate (x y): ");
         c1 = tmge.getInputHandler().makeMove();
         return Set.of(c1);
     }
