@@ -1,5 +1,6 @@
 package bejeweled;
 import java.util.List;
+import java.util.Scanner;
 
 import tmge.TMGE;
 import tmge.logic.*;

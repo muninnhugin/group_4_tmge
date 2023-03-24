@@ -8,6 +8,7 @@ public class BejeweledMoveLogic implements MoveLogic {
 
         @Override
         public Set<Coordinate> getMove(TMGE tmge) throws Exception {
+            System.out.println("Round "+tmge.getTurn());
             tmge.getMatrix().print();
             Coordinate c1;
             Coordinate c2;
